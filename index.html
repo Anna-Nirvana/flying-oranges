@@ -29,29 +29,96 @@
     material.roughness = 0.9
     material.flatShading = true;
     // material.vertexColors = true;
-    material.normalMap = normalTexture;
+    // material.normalMap = normalTexture;
     material.color = new THREE.Color(0x2D80F1)
 
-    // Gen random data
-    const N = 20;
 
-    const arcsData = [...Array(N).keys()].map(() => ({
-      startLat: (Math.random() - 0.5) * 180,
-      startLng: (Math.random() - 0.5) * 360,
-      endLat: (Math.random() - 0.5) * 180,
-      endLng: (Math.random() - 0.5) * 360,
-      color: ['#2274A5', '#B49082', '#98473E', '#A37C40'][Math.round(Math.random() * 3)]
-    }));
+  const colorByProduct = {
+    Almonds: '#B83C06',
+    Wine: '#B83C06'
+  }
+
+  const latLong = {
+
+    California: {
+      lat: 36.7783,
+      long: -106.3468,
+    },
+    
+    Canada: {
+      lat: 56.1304,
+      long: -119.4179,
+    }
+
+  }
+
+  const Sample = {
+
+      Almonds: {
+        Canada: 199209810,
+        // "India":766845343,
+        // "Japan": 269625440,
+        // "UAE": 256403587,
+        // "S. Korea": 170631823,
+        },
+
+      Wine: {
+        Canada: 199209810,
+        // "India":766845343,
+        // "Japan": 269625440,
+        // "UAE": 256403587,
+        // "S. Korea": 170631823,
+        },
+      
+      //add more produce!
+
+  }
+
+    // Placeholder data
+    // const N = 20;
+
+    // const arcsData = [...Array(N).keys()].map(() => ({
+    //   startLat: (Math.random() - 0.5) * 180,
+    //   startLng: (Math.random() - 0.5) * 360,
+    //   endLat: (Math.random() - 0.5) * 180,
+    //   endLng: (Math.random() - 0.5) * 360,
+    //   color: ['#2274A5', '#B49082', '#98473E', '#A37C40'][Math.round(Math.random() * 3)]
+    // }));
+
+    let arcsData = [];
+
+    for (const [product, countriesByProduct] of Object.entries(Sample))
+    {
+      for (const [country, value] of Object.entries(countriesByProduct))
+      {
+        arcsData.push({
+          startLat: latLong.California.lat,
+          startLng: latLong.California.long,
+          endLat: latLong[country].lat,
+          endLng: latLong[country].long,
+          color: colorByProduct[product]
+        });
+      }
+    }
+    console.log(arcsData);
+
+    // [Sample.Almonds.keys()].map((country) => ({
+    //   startLat: latLong.California.lat,
+    //   startLong: latLong.California.long,
+    //   endLat: latLong[country].lat,
+    //   endLong: latLong[country].long,
+    //   color: colorByProduct.Almonds
+    // }))
 
     const sphere = new ThreeGlobe()
-      // .globeImageUrl('./static/img/1_earth_16k.jpeg')
+      .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
       // .bumpImageUrl('./static/textures/EarthNormal.png')
-      .globeMaterial(material)
+      // .globeMaterial(material)
       .arcsData(arcsData)
       .arcColor('color')
       .arcDashLength(0.4)
       .arcDashGap(4)
-      .arcStroke(3)
+      // .arcStroke()
       .arcDashInitialGap(() => Math.random() * 5)
       .arcDashAnimateTime(1000);
 
@@ -90,7 +157,7 @@
  * Animate
  */
 
-//add interactivity based on mouse position
+//add interactivity based on mouse latLong
 document.addEventListener('mousemove', onDocumentMouseMove)
 
 let mouseX = 0
@@ -103,7 +170,7 @@ const windowX = window.innerWidth / 2;
 const windowY = window.innerHeight / 2;
 
 function onDocumentMouseMove(event) {
-    mouseX = (event.clientX - windowX) //clientX means X position of mouse
+    mouseX = (event.clientX - windowX) //clientX means X latLong of mouse
     mouseY = (event.clientY - windowY)
 }
 function updateSphere(event) {
