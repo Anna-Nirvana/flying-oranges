@@ -16,10 +16,16 @@ http://www.celestiamotherlode.net/addon/addon_1544.html
 Reference - How We Built the GitHub Globe
 https://github.blog/2020-12-21-how-we-built-the-github-globe/
 
-
 NPM Packages
-
 https://www.npmjs.com/package/three
 https://www.npmjs.com/package/dat.gui
 https://www.npmjs.com/package/three-globe
 https://www.npmjs.com/package/globe.gl
+
+Tutorials and Templates
+https://www.youtube.com/watch?v=pUgWfqWZWmM
+https://github.com/vasturiano/three-globe/blob/master/example/links/index.html
+https://threejs-journey.xyz/
+
+Other Helpful Things
+https://unpkg.com/
