@@ -29,6 +29,9 @@ const scene = new THREE.Scene()
 //Data
 const colorByProduct = {
     Almonds: '#B83C06',
+    Feed_Fodder: '#ffcc66',
+    Fresh_Fruit: '#009933',
+    Misc_Food_Prep: '#ff3300',
     Wine: '#961414'
   }
 
@@ -44,32 +47,96 @@ const colorByProduct = {
       long: -106.3468,
     },
 
+    China: {
+      lat: 35.8617,
+      long: 104.1954
+    },
+
+    Denmark: {
+      lat: 56.2639,
+      long: 9.5018
+    },
+
+    Japan: {
+      lat: 36.2048,
+      long: 138.2529
+    },
+
     India: {
       lat: 20.5937,
       long: 78.9629
+    },
+
+    Mexico: {
+      lat: 23.6345,
+      long: -102.5528
+    },
+
+    S_Korea: {
+      lat: 35.9078,
+      long: 127.7669
+    },
+
+    Taiwan: {
+      lat: 23.6978,
+      long: 120.9605
+    },
+
+    UAE: {
+      lat: 23.4241,
+      long: 53.8478
+    },
+
+    UK: {
+      lat: 55.3781,
+      long: -3.4360
     }
 
   }
 
-  const Sample = {
+  const data = {
 
       Almonds: {
         Canada: 199209810, //a map/dict is a set of key-value pairs
         India: 766845343, 
-        // "Japan": 269625440,
-        // "UAE": 256403587,
-        // "S. Korea": 170631823,
+        Japan: 269625440,
+        UAE: 256403587,
+        S_Korea: 170631823,
         },
+
+      Feed_Fodder: {
+        Canada: 68973327,
+        China: 242075845,
+        Japan: 242104978,
+        Taiwan: 69815649,
+        S_Korea: 100546493
+      },
+
+      Fresh_Fruit: {
+        Canada: 915609574,
+        Japan: 126346797,
+        Mexico: 236331506,
+        Taiwan: 92545819,
+        S_Korea: 138300252,
+        },
+
+      Misc_Food_Prep: {
+        Canada: 113405798,
+        China: 158904684,
+        Japan: 119465874,
+        Mexico: 153255251,
+        S_Korea: 309897178
+      },
 
       Wine: {
         Canada: 199209810,
-        // "India":766845343,
-        // "Japan": 269625440,
-        // "UAE": 256403587,
-        // "S. Korea": 170631823,
+        China: 33501985,
+        Denmark: 34194679,
+        Japan: 78125056,
+        UK: 220933143,
         },
-      
-      //add more produce!
+
+
 
   }
 
@@ -103,9 +170,9 @@ const colorByProduct = {
     }
 
     const perturbationLong = 1.0;
-    
+
     let arcsData = [];
-    for (const [product, countriesByProduct] of Object.entries(Sample))
+    for (const [product, countriesByProduct] of Object.entries(data))
     {
       for (const [country, value] of Object.entries(countriesByProduct))
       {
