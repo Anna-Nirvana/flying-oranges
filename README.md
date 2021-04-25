@@ -1,17 +1,24 @@
-# Three.js Starter
-Courtesy of Bruno Simon of https://threejs-journey.xyz/
+#Visualizing CA's int'l agricultural exports
 
-## Setup
-Download [Node.js](https://nodejs.org/en/download/).
-Run this followed commands:
+##Final project for Information Design II graduate studio course at Northeastern University, Spring 2021
 
-``` bash
-# Install dependencies (only the first time)
-npm install
+###Data
+Top 5 U.S. agricultural import & export commodities by State: fiscal year, USDA ERS
+https://www.ers.usda.gov/data-products/state-agricultural-trade-data/
 
-# Run the local server at localhost:8080
-npm run dev
+Bump/Normal Maps - The Celestia Motherlode
+http://www.celestiamotherlode.net/addon/addon_1544.html
 
-# Build for production in the dist/ directory
-npm run build
-```
+###Reference - How We Built the GitHub Globe
+https://github.blog/2020-12-21-how-we-built-the-github-globe/
+
+###NPM Packages
+https://www.npmjs.com/package/three
+https://www.npmjs.com/package/dat.gui
+https://www.npmjs.com/package/three-globe
+https://www.npmjs.com/package/globe.gl
+
+###Tutorials and Templates
+https://www.youtube.com/watch?v=pUgWfqWZWmM
+https://github.com/vasturiano/three-globe/blob/master/example/links/index.html
+https://threejs-journey.xyz/
