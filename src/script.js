@@ -29,19 +29,24 @@ const scene = new THREE.Scene()
 //Data
 const colorByProduct = {
     Almonds: '#B83C06',
-    Wine: '#B83C06'
+    Wine: '#961414'
   }
 
   const latLong = {
 
     California: {
       lat: 36.7783,
-      long: -106.3468,
+      long: -119.4179,
     },
     
     Canada: {
       lat: 56.1304,
-      long: -119.4179,
+      long: -106.3468,
+    },
+
+    India: {
+      lat: 20.5937,
+      long: 78.9629
     }
 
   }
@@ -49,8 +54,8 @@ const colorByProduct = {
   const Sample = {
 
       Almonds: {
-        Canada: 199209810,
-        // "India":766845343,
+        Canada: 199209810, //a map/dict is a set of key-value pairs
+        India: 766845343, 
         // "Japan": 269625440,
         // "UAE": 256403587,
         // "S. Korea": 170631823,
@@ -79,8 +84,27 @@ const colorByProduct = {
     //   color: ['#2274A5', '#B49082', '#98473E', '#A37C40'][Math.round(Math.random() * 3)]
     // }));
 
-    let arcsData = [];
+    
+    /**
+     * Converts a raw product value to a stroke width
+     * @param {the raw product value} value 
+     */
+    function getStrokeWidth(value)
+    {
+      // normalize value to range 0:1 based on expected min/max
+      const minExpectedValue = 0;
+      const maxExpectedValue = 2500000000; //+compute from data
 
+      let normValue = Math.max(0, (value - minExpectedValue)/(maxExpectedValue - minExpectedValue)); 
+      // convert normalized value to desired stroke range min/max
+      const strokeMin = 1; //+ tunable
+      const strokeMax = 10;
+      return strokeMin + normValue * (strokeMax-strokeMin);
+    }
+
+    const perturbationLong = 1.0;
+    
+    let arcsData = [];
     for (const [product, countriesByProduct] of Object.entries(Sample))
     {
       for (const [country, value] of Object.entries(countriesByProduct))
@@ -88,9 +112,10 @@ const colorByProduct = {
         arcsData.push({
           startLat: latLong.California.lat,
           startLng: latLong.California.long,
-          endLat: latLong[country].lat,
-          endLng: latLong[country].long,
-          color: colorByProduct[product]
+          endLat: latLong[country].lat, //dig into latLong map/dict/object, match country string
+          endLng: latLong[country].long + (2*Math.random()-1.0)*perturbationLong,
+          color: colorByProduct[product],
+          strokeWidth: getStrokeWidth(value)
         });
       }
     }
@@ -110,7 +135,7 @@ const globe = new ThreeGlobe()
     .arcColor('color')
     .arcDashLength(0.4)
     .arcDashGap(4)
-    // .arcStroke()
+    .arcStroke('strokeWidth')
     .arcDashInitialGap(() => Math.random() * 5)
     .arcDashAnimateTime(1000);
 
