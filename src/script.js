@@ -1,6 +1,6 @@
 import './style.css'
 import * as THREE from 'three'
-//import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'dat.gui'
 import ThreeGlobe from 'three-globe';
 
@@ -164,7 +164,7 @@ const colorByProduct = {
 
       let normValue = Math.max(0, (value - minExpectedValue)/(maxExpectedValue - minExpectedValue)); 
       // convert normalized value to desired stroke range min/max
-      const strokeMin = 1; //+ tunable
+      const strokeMin = 1; //+tunable
       const strokeMax = 10;
       return strokeMin + normValue * (strokeMax-strokeMin);
     }
@@ -196,7 +196,7 @@ const globe = new ThreeGlobe()
     .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
 
     // .globeImageUrl('https://raw.githubusercontent.com/Anna-Nirvana/oranges-on-a-plane/master/static/textures/EarthSpec.png')
-      // .bumpImageUrl('./static/textures/EarthNormal.png')
+    // .bumpImageUrl('./static/EarthNormal.png')
       // .globeMaterial(material)
     .arcsData(arcsData)
     .arcColor('color')
@@ -261,9 +261,9 @@ window.addEventListener('resize', () =>
 // camera.position.z = 2
 // scene.add(camera)
 
-// Controls
-// const controls = new OrbitControls(camera, canvas)
-// controls.enableDamping = true
+//Controls
+const controls = new OrbitControls(camera, canvas)
+controls.enableDamping = true
 
 /**
  * Renderer
