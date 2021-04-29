@@ -1,20 +1,78 @@
-*
-{
+* {
     margin: 0;
     padding: 0;
 }
 
-html,
-body
-{
+html, body {
     height: 100vh;
-    font-family: 'Poppins';
+    background: rgb(0, 0, 0);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(18, 18, 27, 1) 51%, rgba(71, 97, 102, 1) 100%);
 }
 
-.webgl
-{
-    position: fixed;
-    top: 0;
-    left: 0;
-    outline: none;
+canvas {
+    z-index: 0;
+    position: absolute;
+    margin-top: 0vh;
 }
+
+
+.overlay {
+    z-index: 2;
+    position: relative;
+    height: 100vh;
+}
+
+.title {
+    z-index: 5;
+    position: fixed;
+    /* background-color: black; */
+    margin-top: 15vh;
+    /* margin-bottom: 2px; */
+    border: none;
+    color: white;
+    /* padding: 8px; */
+    font-family: 'Open Sans';
+}
+
+img.title {
+    height: 5vh;
+}
+
+
+#importButton, #import.key {
+    margin-left: 10vw;
+}
+
+#exportButton, #export.key {
+    margin-left: 70vw;
+}
+
+#export.key, #import.key {
+    margin-top: 32vh;
+    position: fixed;
+}
+
+
+.key {
+    /* width: 20vw; */
+    height: 40vh;
+    /* background-color: rgba(0, 0, 0, 0.678); */
+    border-radius: 5px;
+    /* margin-top: 50vh; */
+    position: fixed;
+    z-index: 10;
+    /* position: absolute; */
+}
+
+/* .keyContainer {
+    opacity: 1;
+} */
+
+img {
+    width: 18.5vw;
+    height: relative;
+    /* z-index: 10; */
+    mix-blend-mode: lighten;
+    /* background: transparent url('import') no-repeat center; */
+}
+

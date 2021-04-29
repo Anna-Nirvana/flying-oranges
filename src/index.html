@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>California Ag Exports</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <title>California Agriculture Trade</title>
 </head>
+
 <body>
-    <canvas id="globeViz" class="webgl"></canvas>
+
+    <div id='overlay'>
+
+        <!-- <button id='importButton'> IMPORTS </button>
+        <button id='exportButton'> EXPORTS </button> -->
+        <div id='keybox'>
+            <div id='importButton' class='title'> </div>
+            <div id='exportButton' class='title'> </div>
+
+            <div id='import' class='key'>
+                <!-- <img src='import_key.png' width = 50 > </img> -->
+            </div>
+            <div id='export' class='key'> </div>
+        </div>
+    </div>
+
+    <div id='globeWrapper'>
+        <canvas id="importGlobe" class="webgl"></canvas>
+    </div>
+
 </body>
+
 </html>
