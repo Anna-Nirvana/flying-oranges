@@ -23,13 +23,13 @@ const scene = new THREE.Scene()
 
 // Data
 const colorByProduct = {
-  Almonds: '#A3320B', //brown
-  Feed_Fodder: '#79745C', // yellow
-  Fresh_Fruit: '#FF3E41', // orange X
-  Fresh_Frozen_Fruit: '#FF3E41', // same X
-  Fresh_Vegetables: '#596f62', //green X
-  Misc_Food_Prep: '#1C3144', // any (Prussian blue)X
-  Red_Meat: '#96150c', // red
+  Almonds: '#B26700', //brown
+  Feed_Fodder: '#BAB038', // yellow
+  Fresh_Fruit: '#C2F970', // orange X
+  Fresh_Frozen_Fruit: '#C2F970', // same X
+  Fresh_Vegetables: '#3F6634', //green X
+  Misc_Food_Prep: '#3066BE', // any (Prussian blue)X
+  Red_Meat: '#A8201A', // red
   Vegetable_Oil: '#E8DDB5', // light green X
   Wine: '#520001' // dark red X
 }
@@ -282,10 +282,17 @@ for (const [product, countriesByProduct] of Object.entries(importData)) {
 }
 console.log(arcsData);
 
-var importKeyImgURL = 'import_key.png';
-var exportKeyImgURL = 'export_key.png';
-var importTitleImgURL = 'import_title.png';
-var exportTitleImgURL = 'export_title.png';
+//version 1 images
+// var importKeyImgURL = 'import_key.png';
+// var exportKeyImgURL = 'export_key.png';
+// var importTitleImgURL = 'import_title.png';
+// var exportTitleImgURL = 'export_title.png';
+
+//version 2 images
+var importKeyImgURL = 'CalAgImports.png';
+var exportKeyImgURL = 'CalAgExports.png';
+var importTitleImgURL = 'Imports_title.png';
+var exportTitleImgURL = 'exports_title.png';
 
 var image1 = new Image();
 image1.src = importKeyImgURL;
